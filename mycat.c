@@ -10,7 +10,7 @@ int main(int argc, char **argv){
     //Comprobamos que el numero de argumentos sea valido
     if(argc != 2){
         //Si no lo son imprimimos por pantalla un error y terminamos la ejecucion
-        perror("Numero de argumentos invalido");
+        write(STDERR_FILENO,"Numero de argumentos invalido\n",31);
         exit(-1);
     }
     //Si son validos abrimos el fichero que ha sido indicado en el primer argumento como solo lectura
@@ -32,8 +32,6 @@ int main(int argc, char **argv){
         write(STDOUT_FILENO,&buffer, bytesleidos);
         bytesleidos= read(fr, &buffer, sizeof(buffer));
     }
-    //Imprimimos un salto de linea para que quede bonito en la terminal
-    write(STDOUT_FILENO, "\n",1);
     //Cerramos el fichero y finalizamos la ejeccución exitosamente
     close(fr);
     return 0;
