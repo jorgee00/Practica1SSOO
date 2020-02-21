@@ -23,15 +23,20 @@ int main(int argc, char **argv){
         perror("No se ha podido abrir el fichero");
         exit(-1);
     }
+    //Creamos un buffer del tamaño especificado y un entero que almacenara el numero de bytesleido
     char buffer [1024];
     int bytesleidos;
+    //Leemos tantos bytes como el tamaño del buffer
     bytesleidos= read(fr, &buffer, sizeof(buffer));
+    //Iteramos hasta que no leamos ningun byte en una iteracion
     while (bytesleidos){
-        //printf("%d" ,bytesleidos);
+        //Escribimos por pantalla los bytes leidos y volvemos a leer
         write(STDOUT_FILENO,&buffer, bytesleidos);
         bytesleidos= read(fr, &buffer, sizeof(buffer));
     }
+    //Imprimimos un salto de linea para que quede bonito en la terminal
     write(STDOUT_FILENO, "\n",1);
+    //Cerramos el fichero y finalizamos la ejeccución exitosamente
     close(fr);
     return 0;
 }
