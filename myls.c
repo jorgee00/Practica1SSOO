@@ -13,6 +13,11 @@ int main(int argc, char **argv){
         write(STDERR_FILENO,"Numero de argumentos invalido\n",29);
         exit(-1);
     }
+    //Comprobamos que la ruta pasada no excede el tamñano máximo especificado
+    if(strlen(argv[1])>PATH_MAX){
+        write(STDERR_FILENO,"Ruta demasiado grande",22);
+        exit(-1);
+    }
 
     DIR* dir;
     char path[PATH_MAX];
@@ -22,11 +27,6 @@ int main(int argc, char **argv){
     if(argc==1){
         getcwd(path,PATH_MAX);
     }else{
-        //Comprobamos que la ruta pasada no excede el tamñano máximo especificado
-        if(strlen(argv[1])>PATH_MAX){
-            write(STDERR_FILENO,"Ruta demasiado grande",22);
-            exit(-1);
-        }
         //Copiamos en la variable path la ruta pasada como parámetro
         strcpy(path, argv[1]);
     }
