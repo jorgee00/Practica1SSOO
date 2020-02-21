@@ -1,4 +1,8 @@
-//
-// Created by jorge on 20/2/20.
-//
+//OPEN
+#include <sys/types.h>
+#include <sys/stat.h>
+#include <fcntl.h>
+//READ
+#include <unistd.h>
+
 
