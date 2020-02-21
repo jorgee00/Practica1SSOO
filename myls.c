@@ -10,7 +10,7 @@
 int main(int argc, char **argv){
     //Comprueba que como máximo se pasa un único parámetro
     if(argc>2){
-        perror("Numero de argumentos invalido");
+        write(STDERR_FILENO,"Numero de argumentos invalido\n",29);
         exit(-1);
     }
 
@@ -24,7 +24,7 @@ int main(int argc, char **argv){
     }else{
         //Comprobamos que la ruta pasada no excede el tamñano máximo especificado
         if(strlen(argv[1])>PATH_MAX){
-            perror("Ruta demasiado grande");
+            write(STDERR_FILENO,"Ruta demasiado grande",22);
             exit(-1);
         }
         //Copiamos en la variable path la ruta pasada como parámetro
@@ -35,7 +35,7 @@ int main(int argc, char **argv){
     dir = opendir(path);
     //Comprobamos si se ha podido abrir el directorio
     if(dir==NULL){
-        perror("No se ha podido abrir el directorio");
+        write(STDERR_FILENO,"No se ha podido abrir el directorio\n",36);
         exit(-1);
     }
 
