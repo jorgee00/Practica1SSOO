@@ -1,14 +1,11 @@
 //OPENDIR
-#include <sys/types.h>
 #include <dirent.h>
-
-#include <fcntl.h>
 //READ
 #include <unistd.h>
 //Basicas C
 #include <stdio.h>
 #include <stdlib.h>
-
+#include <string.h>
 
 int main(int argc, char **argv){
 
@@ -16,20 +13,19 @@ int main(int argc, char **argv){
         perror("Numero de argumentos invalido");
         exit(-1);
     }
-
     DIR* dir;
-    char *path;
+    char path[PATH_MAX];
     if(argc==1){
         //RELATIVA
-
-
+        getcwd(path,PATH_MAX);
     }else{
         if(sizeof(argv[1])>PATH_MAX){
             perror("Ruta demasiado grande");
             exit(-1);
         }
-        path = argv[1];
+        strcpy(path, argv[1]);
     }
+    printf("%s",path);
     dir = opendir(path);
     if(dir==NULL){
         perror("No se ha podido abrir el directorio");
