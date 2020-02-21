@@ -14,7 +14,7 @@ int main(int argc, char **argv){
         exit(-1);
     }
     //Comprobamos que la ruta pasada no excede el tamñano máximo especificado
-    if(strlen(argv[1])>PATH_MAX){
+    if(argc == 2 && strlen(argv[1])>PATH_MAX){
         write(STDERR_FILENO,"Ruta demasiado grande",22);
         exit(-1);
     }
