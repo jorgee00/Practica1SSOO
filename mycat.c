@@ -1,6 +1,4 @@
 //OPEN
-#include <sys/types.h>
-#include <sys/stat.h>
 #include <fcntl.h>
 //READ
 #include <unistd.h>
@@ -10,7 +8,7 @@
 
 int main(int argc, char **argv){
     //Comprobamos que el numero de argumentos sea valido
-    if(argv[1] == NULL || argv[2]!=NULL){
+    if(argc != 2){
         //Si no lo son imprimimos por pantalla un error y terminamos la ejecucion
         perror("Numero de argumentos invalido");
         exit(-1);
@@ -40,4 +38,3 @@ int main(int argc, char **argv){
     close(fr);
     return 0;
 }
-
