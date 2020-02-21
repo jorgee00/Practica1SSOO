@@ -3,3 +3,5 @@ CMakeLists.txt
 mycat
 myls
 mysize
+out_mycat
+out_cat
