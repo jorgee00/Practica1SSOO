@@ -44,7 +44,7 @@ int main(int argc, char **argv){
         }
         rdir = readdir(dir);
     }
-
+    
     //Cerramos el directorio y retornamos 0
     closedir(dir);
     return 0;

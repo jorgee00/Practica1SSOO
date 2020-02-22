@@ -10,7 +10,7 @@
 int main(int argc, char **argv){
     //Comprueba que como máximo se pasa un único parámetro
     if(argc>2){
-        write(STDERR_FILENO,"Numero de argumentos invalido\n",29);
+        write(STDERR_FILENO,"Numero de argumentos invalido\n",31);
         exit(-1);
     }
     //Comprobamos que la ruta pasada no excede el tamñano máximo especificado
